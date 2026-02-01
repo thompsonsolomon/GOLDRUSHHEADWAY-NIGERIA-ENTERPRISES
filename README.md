@@ -10,7 +10,6 @@ Building materials supply
 
 Contact information
 
-Payment details (50% upfront, 50% after work)
 
 Technologies used:
 
