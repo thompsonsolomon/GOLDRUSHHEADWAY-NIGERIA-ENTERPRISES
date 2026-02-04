@@ -32,6 +32,17 @@ const services = [
     ],
   },
   {
+    icon: Building2,
+    title: 'Concrete / Hard Landscaping',
+    description:
+      'Comprehensive concrete landscaping services tailored to individual and corporate specifications.',
+    features: [
+      'Stone Paving',
+      'Concrete Stamped floors',
+      'Walkways',
+    ],
+  },
+  {
     icon: Leaf,
     title: 'Complete Landscaping',
     description:
