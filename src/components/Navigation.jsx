@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import { logo, logoUnBg } from '../Asset';
 
 const navItems = [
   { name: 'Home', href: '/home' },
@@ -41,7 +42,8 @@ function Navigation() {
               whileHover={{ scale: 1.05 }}
               className="text-2xl font-bold text-primary"
             >
-              GRH<span className="text-accent">.</span>
+              <img src={logoUnBg} className='w-9 h-9 ' alt="" srcset="" />
+{/* blordStrike */}
             </motion.div>
           </Link>
 

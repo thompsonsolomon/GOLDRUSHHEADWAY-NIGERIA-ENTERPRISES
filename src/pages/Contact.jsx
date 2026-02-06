@@ -86,10 +86,10 @@ function Contact() {
               <h3 className="text-xl font-bold text-primary mb-2">Phone</h3>
               <p className="text-foreground/70 mb-4">Call us during business hours</p>
               <a
-                href="tel:+234-XXX-XXXX"
+                href="tel:+                  +353894206804"
                 className="text-accent font-semibold hover:text-accent/80 transition-colors"
               >
-                +234 XXX XXXX
+                  +353894206804
               </a>
             </motion.div>
 
@@ -137,7 +137,7 @@ function Contact() {
             transition={{ delay: 0.3 }}
           >
             <a
-              href="https://wa.me/234XXXXXXXXX"
+              href="https://wa.me/353894206804"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded font-semibold hover:bg-green-700 transition-colors"

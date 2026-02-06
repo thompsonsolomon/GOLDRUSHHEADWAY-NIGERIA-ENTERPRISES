@@ -3,6 +3,7 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin } from 'lucide-react'
+import { logoUnBg } from '../Asset';
 
 function Footer() {
   const containerVariants = {
@@ -33,9 +34,13 @@ function Footer() {
         >
           {/* Company Info */}
           <motion.div variants={itemVariants}>
-            <h3 className="text-xl font-bold mb-4">
-              GOLDRUSHHEADWAY<span className="text-accent">.</span>
-            </h3>
+            <div className="flex items-end">
+
+              <img src={logoUnBg} className='w-[80px] h-[80px]' alt="" srcset="" />
+              <h3 className="text-xl font-bold mb-4">
+                GOLDRUSHHEADWAY<span className="text-accent">.</span>
+              </h3>
+            </div>
             <p className="text-sm text-primary-foreground/80 leading-relaxed">
               Quality Construction & Reliable Building Materials Supply
             </p>
@@ -82,7 +87,7 @@ function Footer() {
                   href="tel:+234-XXX-XXXX"
                   className="text-primary-foreground/80 hover:text-accent transition-colors"
                 >
-                  +234 XXX XXXX
+                  +353894206804
                 </a>
               </div>
               <div className="flex items-center gap-2">

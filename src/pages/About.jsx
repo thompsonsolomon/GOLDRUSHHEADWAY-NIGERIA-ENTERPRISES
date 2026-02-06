@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Award, Users, Zap } from 'lucide-react'
+import { Link } from 'react-router-dom';
 
 function About() {
   const containerVariants = {
@@ -191,13 +192,15 @@ function About() {
             <p className="text-lg text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
               Ready to work with a trusted partner for your construction and materials supply needs?
             </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-accent text-accent-foreground px-8 py-3 rounded font-semibold hover:bg-accent/90 transition-colors"
-            >
-              Get in Touch
-            </motion.button>
+            <Link to="/contact">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-accent text-accent-foreground px-8 py-3 rounded font-semibold hover:bg-accent/90 transition-colors"
+              >
+                Get in Touch
+              </motion.button>
+            </Link>
           </motion.div>
         </div>
       </section>

@@ -2,16 +2,17 @@
 
 import { motion } from 'framer-motion'
 import { Package, Truck, Shield, DollarSign } from 'lucide-react'
+import { TestImg, Img1, Img4, Img2, Img3, Img5, Img6, Img7 } from '../Asset';
 
 const materials = [
-  { name: 'Blocks', icon: '🧱' },
-  { name: 'Cement', icon: '⚙️' },
-  { name: 'Rings', icon: '⭕' },
-  { name: 'Interlock Bricks', icon: '🔳' },
-  { name: 'Aluminium Roofing Sheets', icon: '🏠' },
-  { name: 'Steel Reinforcement', icon: '📐' },
-  { name: 'Sand & Gravel', icon: '🏜️' },
-  { name: 'Aggregate', icon: '💎' },
+  { name: 'Blocks', icon: TestImg },
+  { name: 'Cement', icon: Img4 },
+  { name: 'Rings', icon: Img2 },
+  { name: 'Interlock Bricks', icon: Img1 },
+  { name: 'Aluminium Roofing Sheets', icon: Img3 },
+  { name: 'Steel Reinforcement', icon: Img5 },
+  { name: 'Sand & Gravel', icon: Img7 },
+  { name: 'Aggregate', icon: Img6 },
 ]
 
 const benefits = [
@@ -116,7 +117,8 @@ function Materials() {
                 className="bg-card border border-border rounded-lg p-8 text-center hover:border-accent hover:shadow-lg transition-all cursor-pointer group"
               >
                 <div className="text-5xl mb-4 group-hover:scale-110 transition-transform">
-                  {material.icon}
+                <img src={material.icon} alt="" srcset="" />
+                  {/* {material.icon} */}
                 </div>
                 <h3 className="font-bold text-primary text-lg">{material.name}</h3>
               </motion.div>
