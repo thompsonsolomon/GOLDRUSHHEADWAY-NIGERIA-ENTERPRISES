@@ -31,31 +31,7 @@ const services = [
       'Custom architectural solutions',
     ],
   },
-  {
-    icon: Building2,
-    title: 'Concrete / Hard Landscaping',
-    description:
-      'Comprehensive concrete landscaping services tailored to individual and corporate specifications.',
-    features: [
-      'Stone Paving',
-      'Concrete Stamped floors',
-      'Walkways',
-    ],
-  },
-  {
-    icon: Leaf,
-    title: 'Complete Landscaping',
-    description:
-      'Professional landscaping and site development services to enhance aesthetics and functionality.',
-    features: [
-      'Site preparation and clearing',
-      'Landscape design and implementation',
-      'Green space development',
-      'Drainage and water management',
-      'Environmental compliance',
-    ],
-  },
-  {
+    {
     icon: Hammer,
     title: 'General Contracting',
     description:
@@ -68,6 +44,24 @@ const services = [
       'Completion guarantees',
     ],
   },
+  
+  {
+    icon: Leaf,
+    title: 'Complete Landscaping',
+    description:
+      'Professional landscaping and site development services to enhance aesthetics and functionality.',
+    features: [
+      'Site preparation and clearing',
+      'Landscape design and implementation',
+      'Green space development',
+      'Drainage and water management',
+      'Environmental compliance',
+       'Stone Paving',
+      'Concrete Stamped floors',
+      'Walkways',
+    ],
+  },
+
 ]
 
 function Services() {

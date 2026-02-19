@@ -84,10 +84,10 @@ function Footer() {
               <div className="flex items-center gap-2">
                 <Phone size={16} className="text-accent" />
                 <a
-                  href="tel:+234-XXX-XXXX"
+                  href="tel:+2348038117009"
                   className="text-primary-foreground/80 hover:text-accent transition-colors"
                 >
-                  +353894206804
+                  +2348038117009
                 </a>
               </div>
               <div className="flex items-center gap-2">
@@ -96,7 +96,7 @@ function Footer() {
                   href="mailto:info@grh.ng"
                   className="text-primary-foreground/80 hover:text-accent transition-colors"
                 >
-                  info@grh.ng
+                  info@goldrushheadway.com
                 </a>
               </div>
               <div className="flex items-center gap-2">

@@ -86,11 +86,12 @@ function Contact() {
               <h3 className="text-xl font-bold text-primary mb-2">Phone</h3>
               <p className="text-foreground/70 mb-4">Call us during business hours</p>
               <a
-                href="tel:+                  +353894206804"
+                href="tel:+2348038117009"
                 className="text-accent font-semibold hover:text-accent/80 transition-colors"
               >
-                  +353894206804
-              </a>
+   +2348038117009      <br />
+      +2349136311687
+            </a>
             </motion.div>
 
             {/* Email */}
@@ -105,10 +106,10 @@ function Contact() {
               <h3 className="text-xl font-bold text-primary mb-2">Email</h3>
               <p className="text-foreground/70 mb-4">Send us an email anytime</p>
               <a
-                href="mailto:info@grh.ng"
+                href="mailto:goldrushheadway@gmail.com"
                 className="text-accent font-semibold hover:text-accent/80 transition-colors"
               >
-                info@grh.ng
+                goldrushheadway@gmail.com
               </a>
             </motion.div>
 
