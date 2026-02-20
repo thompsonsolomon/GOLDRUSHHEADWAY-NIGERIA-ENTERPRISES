@@ -87,8 +87,8 @@ function Footer() {
                   href="tel:+2348038117009"
                   className="text-primary-foreground/80 hover:text-accent transition-colors"
                 >
-                  +2348038117009
-                </a>
+   +2348038117009      <br />
+      +2349136311687                </a>
               </div>
               <div className="flex items-center gap-2">
                 <Mail size={16} className="text-accent" />
@@ -101,7 +101,7 @@ function Footer() {
               </div>
               <div className="flex items-center gap-2">
                 <MapPin size={16} className="text-accent" />
-                <span className="text-primary-foreground/80">Lagos, Nigeria</span>
+                <span className="text-primary-foreground/80">Akure, Ondo State, Nigeria</span>
               </div>
             </div>
           </motion.div>

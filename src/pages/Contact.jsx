@@ -89,9 +89,9 @@ function Contact() {
                 href="tel:+2348038117009"
                 className="text-accent font-semibold hover:text-accent/80 transition-colors"
               >
-   +2348038117009      <br />
-      +2349136311687
-            </a>
+                +2348038117009      <br />
+                +2349136311687
+              </a>
             </motion.div>
 
             {/* Email */}
@@ -124,7 +124,18 @@ function Contact() {
               </div>
               <h3 className="text-xl font-bold text-primary mb-2">Location</h3>
               <p className="text-foreground/70">
-                Lagos, Nigeria
+              
+              40, Opposite songo market Ado-road, Akure ondo state Nigeria
+              
+              <br />
+                <a
+                  href="https://maps.app.goo.gl/v6G3ViM3L5an9v2w8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent font-semibold hover:text-accent/80 transition-colors"
+                >
+                  View on Google Maps
+                </a>
               </p>
             </motion.div>
           </motion.div>
