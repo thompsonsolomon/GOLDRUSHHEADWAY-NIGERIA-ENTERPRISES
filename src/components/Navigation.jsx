@@ -40,9 +40,10 @@ function Navigation() {
           <Link to="/" className="flex-shrink-0">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="text-2xl font-bold text-primary"
+              className="text-[14px] flex gap-2 justify-center items-end font-bold text-primary"
             >
-              <img src={logoUnBg} className='w-9 h-9 ' alt="" srcset="" />
+              <img src={logoUnBg} className='w-10 h-10 ' alt="" srcset="" />
+              <span>GOLDRUSHHEADWAY.</span>
 {/* blordStrike */}
             </motion.div>
           </Link>
