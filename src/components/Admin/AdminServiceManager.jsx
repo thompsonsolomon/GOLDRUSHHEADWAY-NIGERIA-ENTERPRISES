@@ -220,7 +220,7 @@ export function ServiceManager({
               disabled={uploading}
               className="bg-[#D4AF37] text-white px-6 py-2 rounded-lg hover:bg-gray-800 transition"
             >
-              {editingService ? "Update Service" : "Add Service"}
+              {editingService ? "Update Service" : "Add Team"}
             </button>
           </form>
         </div>
@@ -282,7 +282,7 @@ export function ServiceManager({
 
       {services.length === 0 && (
         <div className="text-center py-10 text-gray-500">
-          No services yet.
+          No Team member  yet.
         </div>
       )}
     </div>

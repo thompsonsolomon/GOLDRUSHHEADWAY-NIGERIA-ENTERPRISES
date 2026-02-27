@@ -12,7 +12,7 @@ function Auth() {
   e.preventDefault();
   try {
    await signInWithEmailAndPassword(auth, email, password);
-   navigate("/admin/dashboard");
+   navigate("/admin");
   } catch (error) {
    alert(error.message);
   }
