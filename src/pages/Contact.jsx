@@ -1,8 +1,10 @@
 'use client';
 
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { motion } from 'framer-motion'
 import { Mail, Phone, MapPin, MessageSquare, Send } from 'lucide-react'
 import { useState } from 'react'
+import { db } from '../components/Helpers/firebase';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -18,15 +20,47 @@ function Contact() {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState(null)
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
-    setSubmitted(true)
-    setTimeout(() => {
-      setSubmitted(false)
-      setFormData({ name: '', email: '', phone: '', subject: '', message: '' })
-    }, 3000)
+
+    try {
+      setSubmitting(true)
+      setError(null)
+
+      await addDoc(collection(db, "contactMessages"), {
+
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        subject: formData.subject,
+        message: formData.message,
+        createdAt: serverTimestamp(),
+      })
+
+      setSubmitted(true)
+
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      })
+
+      setTimeout(() => {
+        setSubmitted(false)
+      }, 3000)
+
+    } catch (err) {
+      console.error("Error sending message:", err)
+      setError("Something went wrong. Please try again.")
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   const containerVariants = {
@@ -124,10 +158,10 @@ function Contact() {
               </div>
               <h3 className="text-xl font-bold text-primary mb-2">Location</h3>
               <p className="text-foreground/70">
-              
-              40, Opposite songo market Ado-road, Akure ondo state Nigeria
-              
-              <br />
+
+                40, Opposite songo market Ado-road, Akure ondo state Nigeria
+
+                <br />
                 <a
                   href="https://maps.app.goo.gl/v6G3ViM3L5an9v2w8"
                   target="_blank"
@@ -163,6 +197,17 @@ function Contact() {
 
       {/* Contact Form Section */}
       <section className="py-20 bg-secondary">
+        {submitted && (
+          <p className="text-green-600 text-sm mt-3">
+            Message sent successfully!
+          </p>
+        )}
+
+        {error && (
+          <p className="text-red-600 text-sm mt-3">
+            {error}
+          </p>
+        )}
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2
             className="text-4xl font-bold text-primary text-center mb-16"
@@ -266,11 +311,15 @@ function Contact() {
                   type="submit"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  disabled={submitting}
                   className="bg-primary text-primary-foreground px-8 py-3 rounded font-semibold hover:bg-primary/90 transition-colors flex items-center gap-2 group"
                 >
-                  Send Message
+                  {submitting ? "Sending..." : "Send Message"}
                   <Send className="group-hover:translate-x-1 transition-transform" size={20} />
                 </motion.button>
+
+
+
               </motion.div>
 
               {/* Success Message */}

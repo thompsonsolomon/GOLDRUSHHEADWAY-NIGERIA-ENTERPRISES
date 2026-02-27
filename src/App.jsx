@@ -12,10 +12,14 @@ import ProtectedRoute from './components/Helpers/ProtectedRoute'
 import Admin from './pages/Admin'
 
 function App() {
+  // if (!user) {
+  //   return <Navigate to="/admin/login" />
+  // }
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
         <Navigation />
+
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -26,11 +30,10 @@ function App() {
             <Route path="/payment" element={<Payment />} />
             <Route path="/contact" element={<Contact />} />
 
-
-            <Route path="/admin" element={<Auth />} />
+            <Route path="/admin/login" element={<Auth />} />
 
             <Route
-              path="/admin/dashboard"
+              path="/admin"
               element={
                 <ProtectedRoute>
                   <Admin />

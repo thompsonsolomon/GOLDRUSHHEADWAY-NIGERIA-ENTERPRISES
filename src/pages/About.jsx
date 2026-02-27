@@ -184,12 +184,8 @@ function About() {
 
 
 
-          <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+          <div
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
           >
             {services?.map((member, index) => (
               <motion.div
@@ -207,7 +203,6 @@ function About() {
                     className="w-full h-full object-cover rounded-full border-4 border-gray-100 shadow-sm"
                   />
                 </div>
-
                 {/* Name */}
                 <h3 className="text-lg font-semibold text-gray-900">
                   {member.name}
@@ -259,7 +254,7 @@ function About() {
                 )}
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 

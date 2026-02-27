@@ -1,25 +1,28 @@
-import { Navigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "./firebase";
+import { Navigate } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { onAuthStateChanged } from "firebase/auth"
+import { auth } from "./firebase"
 
-function ProtectedRoute({ children }) {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+export default function ProtectedRoute({ children }) {
+  const [user, setUser] = useState(null)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-      setLoading(false);
-    });
+      setUser(currentUser)
+      setLoading(false)
+    })
 
-    return () => unsubscribe();
-  }, []);
+    return () => unsubscribe()
+  }, [])
 
-  if (loading) return <p>Loading...</p>;
-  if (!user) return <Navigate to="/admin" />;
+  if (loading) {
+    return <p>Loading...</p>
+  }
 
-  return children;
+  if (!user) {
+    return <Navigate to="/admin/login" />
+  }
+
+  return children
 }
-
-export default ProtectedRoute;
