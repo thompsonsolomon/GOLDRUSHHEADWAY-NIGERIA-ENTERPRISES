@@ -2,7 +2,10 @@
 
 import { motion } from 'framer-motion'
 import { Award, Users, Zap } from 'lucide-react'
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { db } from '../components/Helpers/firebase';
+import { collection, getDocs } from 'firebase/firestore';
 
 function About() {
   const containerVariants = {
@@ -20,6 +23,32 @@ function About() {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   }
+
+  const [services, setServices] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    fetchServices()
+  }, [])
+
+  const fetchServices = async () => {
+    try {
+      const snapshot = await getDocs(collection(db, "goldrushTeam"))
+      const data = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }))
+      setServices(data)
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  console.log(services);
+
+
 
   return (
     <div className="min-h-screen bg-background">
@@ -153,28 +182,83 @@ function About() {
             </p>
           </motion.div>
 
+
+
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
           >
-            {['Leadership', 'Engineering', 'Project Management', 'Construction', 'Quality Assurance', 'Client Support'].map(
-              (role, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className="bg-card border border-border rounded-lg p-6 text-center hover:border-accent transition-all"
-                >
-                  <div className="w-16 h-16 bg-accent/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-2xl font-bold text-accent">◉</span>
+            {services?.map((member, index) => (
+              <motion.div
+                key={member.id || index}
+                variants={itemVariants}
+                whileHover={{ y: -6 }}
+                className="bg-white rounded-2xl shadow-md hover:shadow-xl 
+                 transition-all duration-300 p-6 text-center border"
+              >
+                {/* Avatar */}
+                <div className="relative w-24 h-24 mx-auto mb-4">
+                  <img
+                    src={member.images?.[0] || "/placeholder-avatar.png"}
+                    alt={member.name}
+                    className="w-full h-full object-cover rounded-full border-4 border-gray-100 shadow-sm"
+                  />
+                </div>
+
+                {/* Name */}
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {member.name}
+                </h3>
+
+                {/* Role */}
+                <p className="text-sm text-gray-500 mt-1">
+                  {member.role}
+                </p>
+
+                {/* Description */}
+                {member.description && (
+                  <p className="text-sm text-gray-600 mt-3 leading-relaxed line-clamp-3">
+                    {member.description}
+                  </p>
+                )}
+
+                       {/* Description */}
+                {member.contact && (
+                  <p className="text-sm text-gray-600 mt-3 leading-relaxed line-clamp-3">
+                    {member.contact}
+                  </p>
+                )}
+
+
+                {/* Contact Section */}
+                {member.contact && (
+                  <div className="mt-4">
+                    {member.contact.includes("@") ? (
+                      <a
+                        href={`mailto:${member.contact}`}
+                        className="inline-block text-sm bg-black text-white 
+                         px-4 py-2 rounded-lg hover:bg-gray-800 transition"
+                      >
+                        Contact
+                      </a>
+                    ) : 
+                    
+                    (
+                      <a
+                        href={`tel:${member.contact}`}
+                        className="inline-block text-sm bg-black text-white 
+                         px-4 py-2 rounded-lg hover:bg-gray-800 transition"
+                      >
+                        Call
+                      </a>
+                    )}
                   </div>
-                  <h3 className="text-lg font-bold text-primary">{role}</h3>
-                  <p className="text-sm text-foreground/70 mt-2">Expert professionals ensuring project success</p>
-                </motion.div>
-              )
-            )}
+                )}
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>

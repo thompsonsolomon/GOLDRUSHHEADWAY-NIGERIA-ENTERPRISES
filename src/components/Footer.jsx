@@ -36,7 +36,7 @@ function Footer() {
           <motion.div variants={itemVariants}>
             <div className="flex items-end">
 
-              <img src={logoUnBg} className='w-[80px] h-[80px]' alt="" srcset="" />
+              <img src={logoUnBg} className='w-[80px] h-[80px]' alt="" />
               <h3 className="text-xl font-bold mb-4">
                 GOLDRUSHHEADWAY<span className="text-accent">.</span>
               </h3>

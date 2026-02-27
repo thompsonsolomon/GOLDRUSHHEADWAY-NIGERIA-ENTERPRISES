@@ -7,6 +7,9 @@ import Services from './pages/Services'
 import Materials from './pages/Materials'
 import Payment from './pages/Payment'
 import Contact from './pages/Contact'
+import Auth from './components/Admin/Auth'
+import ProtectedRoute from './components/Helpers/ProtectedRoute'
+import Admin from './pages/Admin'
 
 function App() {
   return (
@@ -22,6 +25,19 @@ function App() {
             <Route path="/materials" element={<Materials />} />
             <Route path="/payment" element={<Payment />} />
             <Route path="/contact" element={<Contact />} />
+
+
+            <Route path="/admin" element={<Auth />} />
+
+            <Route
+              path="/admin/dashboard"
+              element={
+                <ProtectedRoute>
+                  <Admin />
+                </ProtectedRoute>
+              }
+            />
+
           </Routes>
         </main>
         <Footer />

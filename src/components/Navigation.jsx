@@ -42,7 +42,7 @@ function Navigation() {
               whileHover={{ scale: 1.05 }}
               className="text-[14px] flex gap-2 justify-center items-end font-bold text-primary"
             >
-              <img src={logoUnBg} className='w-10 h-10 ' alt="" srcset="" />
+              <img src={logoUnBg} className='w-10 h-10 ' alt=""/>
               <span>GOLDRUSHHEADWAY.</span>
 {/* blordStrike */}
             </motion.div>
