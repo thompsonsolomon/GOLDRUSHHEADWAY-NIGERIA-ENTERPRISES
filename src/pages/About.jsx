@@ -204,30 +204,54 @@ function About() {
                   />
                 </div>
                 {/* Name */}
-                <h3 className="text-lg font-semibold text-gray-900">
-                  {member.name}
-                </h3>
 
-                {/* Role */}
-                <p className="text-sm text-gray-500 mt-1">
-                  {member.role}
-                </p>
+                <div className="flex flex-col gap-4">
+                  <div className="flex gap-4">
+                    <label className='text-lg font-bold'>Name:</label>
+                    <h3 className="text-lg font-semibold text-gray-900">
+                      {member.name}
+                    </h3>
+                  </div>
 
-                {/* Description */}
-                {member.description && (
-                  <p className="text-sm text-gray-600 mt-3 leading-relaxed line-clamp-3">
-                    {member.description}
-                  </p>
-                )}
+                  {/* Role */}
 
-                       {/* Description */}
-                {member.contact && (
-                  <p className="text-sm text-gray-600 mt-3 leading-relaxed line-clamp-3">
-                    {member.contact}
-                  </p>
-                )}
+                  <div className="flex gap-4">
+                    <label className='text-lg font-bold'>Role:</label>
+                    <p className="text-m text-gray-500 mt-1">
+                      {member.role}
+                    </p>
+                  </div>
+
+                  <div className="flex gap-4">
+                    <label className='text-lg font-bold'>Contact:</label>
+                    {member.contact && (
+                      <p className="text-sm text-gray-600 mt-1 leading-relaxed">
+                        {member.contact}
+                      </p>
+                    )}
+                  </div>
 
 
+                  <div className="flex gap-4">
+                    <label className='text-lg font-bold'>Description:</label>
+                    {/* Description */}
+                    {member.description && (
+                      <p className="text-sm text-gray-600 mt-1 leading-relaxed line-clamp-3">
+                        {member.description}
+                      </p>
+                    )}
+                  </div>
+
+
+
+
+
+
+                  {/* Description */}
+
+
+
+                </div>
                 {/* Contact Section */}
                 {member.contact && (
                   <div className="mt-4">
@@ -239,17 +263,17 @@ function About() {
                       >
                         Contact
                       </a>
-                    ) : 
-                    
-                    (
-                      <a
-                        href={`tel:${member.contact}`}
-                        className="inline-block text-sm bg-black text-white 
-                         px-4 py-2 rounded-lg hover:bg-gray-800 transition"
-                      >
-                        Call
-                      </a>
-                    )}
+                    ) :
+
+                      (
+                        <a
+                          href={`tel:${member.contact}`}
+                          className="inline-block w-full text-sm bg-[#D4AF37] text-white 
+                         px-4 py-2 rounded-lg  transition"
+                        >
+                          Call
+                        </a>
+                      )}
                   </div>
                 )}
               </motion.div>
